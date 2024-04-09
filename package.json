@@ -1,0 +1,57 @@
+{
+  "name": "capgo-github-releases-server",
+  "type": "module",
+  "scripts": {
+    "postinstall": "deepkit-type-install",
+    "test": "vitest --run",
+    "build": "vite build --ssr",
+    "build-container": "docker build -t ghcr.io/marcus-sa/capgo-github-releases-server:latest -f Dockerfile .",
+    "push-container": "docker push ghcr.io/marcus-sa/capgo-github-releases-server:latest",
+    "release": "pnpm build-container && pnpm push-container",
+    "start": "vite-node src/main.ts",
+    "prettify": "prettier --write *.ts **/*.ts"
+  },
+  "dependencies": {
+    "@deepkit/api-console-gui": "1.0.1-alpha.143",
+    "@deepkit/app": "1.0.1-alpha.143",
+    "@deepkit/broker": "1.0.1-alpha.143",
+    "@deepkit/bson": "1.0.1-alpha.143",
+    "@deepkit/core": "1.0.1-alpha.143",
+    "@deepkit/core-rxjs": "1.0.1-alpha.143",
+    "@deepkit/event": "1.0.1-alpha.143",
+    "@deepkit/filesystem": "1.0.1-alpha.143",
+    "@deepkit/framework": "1.0.1-alpha.144",
+    "@deepkit/http": "1.0.1-alpha.143",
+    "@deepkit/injector": "1.0.1-alpha.143",
+    "@deepkit/logger": "1.0.1-alpha.143",
+    "@deepkit/orm": "1.0.1-alpha.143",
+    "@deepkit/postgres": "1.0.1-alpha.144",
+    "@deepkit/rpc": "1.0.1-alpha.143",
+    "@deepkit/rpc-tcp": "1.0.1-alpha.143",
+    "@deepkit/sql": "1.0.1-alpha.144",
+    "@deepkit/stopwatch": "1.0.1-alpha.143",
+    "@deepkit/template": "1.0.1-alpha.143",
+    "@deepkit/type": "1.0.1-alpha.143",
+    "@deepkit/workflow": "1.0.1-alpha.143",
+    "@octokit/rest": "20.0.2",
+    "rxjs": "7.8.1",
+    "semver": "7.6.0",
+    "tslib": "2.6.2"
+  },
+  "devDependencies": {
+    "@deepkit/type-compiler": "1.0.1-alpha.143",
+    "@deepkit/vite": "1.0.1-alpha.143",
+    "@types/node": "20.12.6",
+    "@types/semver": "^7.5.8",
+    "prettier": "^3.2.5",
+    "typescript": "5.4.4",
+    "vite": "5.2.8",
+    "vite-node": "^1.4.0",
+    "vitest": "1.4.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@deepkit/type-compiler@1.0.1-alpha.143": "patches/@deepkit__type-compiler@1.0.1-alpha.143.patch"
+    }
+  }
+}
