@@ -7,7 +7,7 @@
     "build": "vite build --ssr",
     "build-container": "docker build -t ghcr.io/marcus-sa/capgo-github-releases-server:latest -f Dockerfile .",
     "push-container": "docker push ghcr.io/marcus-sa/capgo-github-releases-server:latest",
-    "release": "pnpm build-container && pnpm push-container",
+    "release": "pnpm build && pnpm build-container && pnpm push-container",
     "start": "vite-node src/main.ts",
     "prettify": "prettier --write *.ts **/*.ts"
   },

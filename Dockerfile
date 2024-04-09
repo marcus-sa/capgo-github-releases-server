@@ -8,6 +8,6 @@ RUN pnpm install --prod --prefer-offline --ignore-scripts
 
 FROM docker.io/node:21.6.2-alpine
 WORKDIR /app
-COPY --from=deps /app/node_modules /app/node_modules
-COPY ./dist /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY ./dist .
 CMD ["node", "main.mjs"]
