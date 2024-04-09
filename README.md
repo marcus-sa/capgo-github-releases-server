@@ -1,6 +1,6 @@
-Container image is available at `ghcr.io/marcus-sa/capgo-github-releases-server`.
-
 It uses GitHub pre-releases for non-production Capgo updates.
+
+A container image is available at `ghcr.io/marcus-sa/capgo-github-releases-server`.
 
 Default port is `8080`
 
