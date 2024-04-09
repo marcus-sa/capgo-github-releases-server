@@ -4,6 +4,7 @@ RUN corepack enable
 COPY ./patches ./patches
 COPY ./package.json ./package.json
 COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
+RUN echo "node-linker=hoisted" > ./.npmrc
 RUN pnpm install --prod --prefer-offline --ignore-scripts
 
 FROM docker.io/node:21.6.2-alpine
